@@ -3,6 +3,8 @@
   padding: 0;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
+}
+html {
   scroll-behavior: smooth;
 }
 body {
@@ -17,81 +19,92 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
 }
-main {
-  background-image: url(images/slide_03.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+:root {
+  --continer-width: 1400px;
+  --continer-padding: 15px;
+  --main-color: #a4c639;
+  --background-sections: #f7f7f7;
+  --background-of-footer: #232323;
 }
 ul {
   list-style: none;
 }
 .container {
-  width: 70%;
-  margin: auto;
-  padding: 0 15px;
-}
-:root {
-  --main-color: #a4c639;
-  --background-sections: #f7f7f7;
-  --background-of-footer: #232323;
+  width: calc(var(--continer-width) + (var(--continer-padding) * 2));
+  margin-inline: auto;
+  padding-inline: var(--continer-padding);
 }
 /* start header */
-header {
-  background-color: rgba(0, 0, 0, 0.534);
+.header {
+  background-color: #1111118a;
   width: 100%;
   position: fixed;
+  top: 0;
   z-index: 999;
 }
-header .head {
+.header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
   padding: 25px 0;
 }
-.head h2 {
+.header a {
+  text-decoration: none;
   color: #fff;
   font-weight: 900;
   font-size: 24px;
   text-transform: uppercase;
   transition: 0.4s;
 }
-.head h2:hover {
+.header h1:hover {
   color: var(--main-color);
 }
-.head nav ul {
+.header nav ul {
   display: flex;
   align-items: center;
 }
-.head nav ul .Active {
-  border-bottom: 2px solid var(--main-color);
-  color: var(--main-color);
-}
-.head nav ul a {
+.header nav ul a {
+  position: relative;
   text-decoration: none;
   color: #fff;
   font-size: 20px;
   font-weight: 200;
   margin-left: 30px;
-  padding-bottom: 5px;
   transition: all 0.3s ease;
 }
-.head nav ul a:hover {
-  border-bottom: 2px solid var(--main-color);
+.header nav ul a:hover {
   color: var(--main-color);
+}
+.header nav ul a:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background-color: var(--main-color);
+  transition: all 0.3s ease;
+}
+.header nav ul a:hover::after {
+  width: 100%;
+  left: 0;
 }
 /* end header */
 /* start main section */
-.main .content {
+.hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 90vh;
+  min-height: 100vh;
+  background: url(images/slide_03.jpg) center/cover no-repeat;
+  padding-inline: var(--continer-padding);
+}
+.hero article {
+  flex-basis: 554px;
   text-align: center;
 }
-.main .content h2 {
+.hero article h1 span {
+  display: block;
   font-size: 25px;
   text-align: center;
   color: var(--main-color);
@@ -99,7 +112,7 @@ header .head {
   font-weight: 800;
   margin-bottom: 10px;
 }
-.main .content h1 {
+.hero article h1 span:last-child {
   font-size: 40px;
   text-align: center;
   color: #fff;
@@ -107,14 +120,13 @@ header .head {
   font-weight: 900;
   margin-bottom: 10px;
 }
-.main .content p {
-  width: 50%;
+.hero article p {
   color: #fff;
   font-weight: 200;
   margin-bottom: 30px;
   letter-spacing: 1px;
 }
-.main .content .btn a {
+.hero article a {
   text-decoration: none;
   color: #fff;
   font-weight: 700;
@@ -124,7 +136,7 @@ header .head {
   border-radius: 30px;
   transition: all 0.3s ease;
 }
-.main .content .btn a:hover {
+.hero article a:hover {
   background-color: #fff;
   color: var(--main-color);
 }
@@ -132,22 +144,22 @@ header .head {
 /* start request-form */
 .request-form {
   background-color: var(--main-color);
-  padding: 40px 0;
 }
-.request-form .content {
+.request-form .container {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding-block: 40px;
 }
-.request-form .content .text {
+.request-form article {
   color: #fff;
 }
-.request-form .content .text h2 {
+.request-form article h2 {
   margin-bottom: 10px;
   font-weight: 800;
   font-size: 25px;
 }
-.request-form .content .button a {
+.request-form a {
   text-decoration: none;
   font-weight: 800;
   color: #fff;
@@ -156,14 +168,14 @@ header .head {
   border-radius: 30px;
   transition: all 0.3s ease;
 }
-.request-form .content .button a:hover {
+.request-form a:hover {
   background-color: #fff;
   color: var(--main-color);
 }
 /* end request-form   */
 /* start our Services */
-.our-Services {
-  padding: 100px 0;
+.Services {
+  padding-block: 100px;
 }
 /*start for all titls*/
 .title {
@@ -192,34 +204,34 @@ header .head {
   align-items: center;
   flex-wrap: wrap;
 }
-.Services .cards .col-1 {
+.cards article {
   width: 350px;
   background-color: var(--background-sections);
   margin: 10px 20px;
   transition: all 0.3s ease;
 }
-.Services .cards .col-1:hover {
+.cards article:hover {
   box-shadow: 7px 10px 14px #6666668a;
   transform: scale(1.1);
 }
-.Services .cards .col-1 img {
+.cards article img {
   width: 100%;
   overflow: hidden;
 }
-.Services .cards .col-1 .down-content {
+.cards article .down-content {
   padding: 30px;
 }
-.Services .cards .col-1 .down-content h3 {
+.cards article h3 {
   font-size: 25px;
   font-weight: 800;
   text-transform: capitalize;
   margin-bottom: 15px;
 }
-.Services .cards .col-1 .down-content p {
+.cards article p {
   color: #666;
   letter-spacing: 1px;
 }
-.Services .col-1 .down-content .btn a {
+.cards article a {
   display: block;
   margin-top: 20px;
   font-size: 13px;
@@ -233,55 +245,50 @@ header .head {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-.Services .col-1 .down-content .btn a:hover {
+.cards article a:hover {
   background-color: #fff;
   color: var(--main-color);
 }
 /* end our Services */
 /* start section fun facts */
 .fun-facts {
-  background-image: url(images/fun-facts-bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 140px 0;
+  background: url(images/fun-facts-bg.jpg) center/ cover no-repeat fixed;
+  padding-block: 140px;
 }
-.fun-facts .row {
+.fun-facts .container {
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
-.fun-facts .row .left-content {
+.fun-facts .content {
   margin-right: 45px;
-  width: 47%;
+  max-width: 600px;
 }
-.row .left-content span {
+.fun-facts .content span {
   display: block;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
-.row .left-content h2 {
+.fun-facts .content h2 {
   color: #fff;
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 35px;
 }
-.row .left-content h2 span {
+.fun-facts .content  h2 span {
   text-transform: capitalize;
   color: var(--main-color);
 }
-.row .left-content p {
+.fun-facts .content p {
   color: #fff;
   margin-bottom: 45px;
 }
-.fun-facts .row .left-content .btn a {
-  display: block;
-  width: fit-content;
+.fun-facts .content a {
+  display: inline-block;
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
@@ -292,29 +299,33 @@ header .head {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-.fun-facts .row .left-content .btn a:hover {
+.fun-facts .content a:hover {
   background-color: #fff;
   color: var(--main-color);
 }
-.fun-facts .right-section {
+.fun-facts .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  max-width: 600px;
+  flex-wrap: wrap;
 }
-.fun-facts .right-section .col .count-area {
+.fun-facts .wrapper article {
   display: block;
   padding: 25px 30px 35px 30px;
-  background-color: rgba(250, 250, 250, 0.1);
-  margin: 15px 10px;
+  background-color: #3c3c3cb5;
   text-align: center;
+  flex-basis: 187px;
+  flex-grow: 1;
 }
-.right-section .col .count-area .num {
+.fun-facts .wrapper article h3 {
   color: var(--main-color);
   font-size: 40px;
   font-weight: 900;
-  margin: 5px 0;
+  margin-block: 5px;
 }
-.right-section .col .count-area .num-title {
+.fun-facts .wrapper article h4 {
   color: #fff;
   font-size: 25px;
   letter-spacing: 0.5px;
@@ -327,27 +338,25 @@ header .head {
 }
 .more-info .content {
   background-color: var(--background-sections);
-}
-.more-info .row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
-.more-info .row .left-image {
+.more-info .left-image {
   width: 50%;
   height: 100%;
 }
-.more-info .row .left-image img {
+.more-info .left-image img {
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
-.more-info .row .right-content {
+.more-info .right-content {
   width: 45%;
   margin-left: 65px;
 }
-.more-info .row .right-content span {
+.more-info .right-content span {
   text-transform: uppercase;
   font-size: 16px;
   color: #666;
@@ -355,23 +364,23 @@ header .head {
   margin-bottom: 10px;
   display: block;
 }
-.more-info .row .right-content h2 {
+.more-info .right-content h2 {
   color: #111;
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 35px;
 }
-.more-info .row .right-content h2 em {
+.more-info .right-content h2 em {
   font-style: normal;
   color: var(--main-color);
 }
-.more-info .row .right-content p {
+.more-info .right-content p {
   color: #666;
   text-transform: capitalize;
   letter-spacing: 0.5px;
   margin-bottom: 30px;
 }
-.row .right-content .btn a {
+.right-content .btn a {
   display: block;
   width: fit-content;
   font-size: 13px;
@@ -384,7 +393,7 @@ header .head {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-.row .right-content .btn a:hover {
+.right-content .btn a:hover {
   background-color: #fff;
   color: var(--main-color);
 }
