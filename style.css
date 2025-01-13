@@ -334,27 +334,21 @@ ul {
 /* end section fun facts */
 /* start section more info */
 .more-info {
-  padding: 140px 0;
+  padding-block: 140px;
 }
-.more-info .content {
-  background-color: var(--background-sections);
+.more-info .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.more-info .left-image {
-  width: 50%;
-  height: 100%;
+.more-info img {
+  max-width: 525px;
 }
-.more-info .left-image img {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-.more-info .right-content {
-  width: 45%;
-  margin-left: 65px;
+.more-info article {
+  background-color: var(--background-sections);
+  max-width: 735px;
+  padding: 71px;
 }
 .more-info .right-content span {
   text-transform: uppercase;
@@ -364,23 +358,23 @@ ul {
   margin-bottom: 10px;
   display: block;
 }
-.more-info .right-content h2 {
+.more-info article h2 {
   color: #111;
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 35px;
 }
-.more-info .right-content h2 em {
+.more-info article h2 span {
   font-style: normal;
   color: var(--main-color);
 }
-.more-info .right-content p {
+.more-info article p {
   color: #666;
   text-transform: capitalize;
   letter-spacing: 0.5px;
   margin-bottom: 30px;
 }
-.right-content .btn a {
+.more-info article a {
   display: block;
   width: fit-content;
   font-size: 13px;
@@ -393,7 +387,7 @@ ul {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-.right-content .btn a:hover {
+.more-info article a:hover {
   background-color: #fff;
   color: var(--main-color);
 }
