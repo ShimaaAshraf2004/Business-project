@@ -20,7 +20,7 @@ body {
   background-color: var(--main-color);
 }
 :root {
-  --continer-width: 1400px;
+  --continer-max-width: 1400px;
   --continer-padding: 15px;
   --main-color: #a4c639;
   --background-sections: #f7f7f7;
@@ -30,7 +30,7 @@ ul {
   list-style: none;
 }
 .container {
-  width: calc(var(--continer-width) + (var(--continer-padding) * 2));
+  width: calc(var(--continer-max-width) + (var(--continer-padding) * 2));
   margin-inline: auto;
   padding-inline: var(--continer-padding);
 }
@@ -339,19 +339,21 @@ ul {
 .more-info article {
   background-color: var(--background-sections);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  overflow: hidden;
   border-radius: 30px;
 }
 .more-info img {
-  height: 530px;
+  width: 580px;
+  height: auto;
   flex-grow: 1;
   border-radius: 30px 0 0 30px;
 }
 .more-info article .content {
   max-width: 700px;
-  padding: 50px;
+  flex-basis: 580px;
+  padding: 71px;
   flex-grow: 1;
 }
 .more-info h2 {
@@ -360,7 +362,6 @@ ul {
   color: #666;
   letter-spacing: 1px;
   margin-bottom: 10px;
-  display: block;
 }
 .more-info article h3 {
   color: #111;
@@ -369,7 +370,6 @@ ul {
   margin-bottom: 35px;
 }
 .more-info article h3 span {
-  font-style: normal;
   color: var(--main-color);
 }
 .more-info article p {
@@ -379,8 +379,7 @@ ul {
   margin-bottom: 30px;
 }
 .more-info article a {
-  display: block;
-  width: fit-content;
+  display: inline-block;
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
@@ -394,6 +393,7 @@ ul {
 .more-info article a:hover {
   background-color: #fff;
   color: var(--main-color);
+  border: 1px solid var(--main-color);
 }
 /* end section more info */
 /* start About us  */
